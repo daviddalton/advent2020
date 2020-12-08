@@ -10,19 +10,12 @@ fs.readFile('data.txt', 'utf8', function (err,rawData) {
         const [range, letter] = policy.split(' ');
         const [min, max] = range.split('-');
 
-        if (password[min-1] === letter) {
-            minBool = true;
-        }
-        if (password[max-1] === letter) {
-            maxBool = true;
-        }
+        minBool = (password[min-1] === letter) ? true : false;
+        maxBool = (password[max-1] === letter) ? true : false;
 
-        if (minBool === true && maxBool === false) {
-            count++
-        } else if (minBool === false && maxBool === true) {
+        if ((minBool === true && maxBool === false) || (minBool === false && maxBool === true)) {
             count++
         }
-        
     }
     console.log(count);
 });
