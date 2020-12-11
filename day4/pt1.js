@@ -21,5 +21,3 @@ for (d in data) {
 }
 
 console.log(count);
-
-
